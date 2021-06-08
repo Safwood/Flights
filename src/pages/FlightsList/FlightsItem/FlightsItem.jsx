@@ -4,28 +4,40 @@ import './FlightsItem.css';
 import AccessTimeIcon from '@material-ui/icons/AccessTime';
 import TrendingFlatIcon from '@material-ui/icons/TrendingFlat';
 
-const FlightsItem = ({ }) => {
-  const price = 21049;
-  const aviacompany = "Аэрофлот - Российские авиалинии";
-  const airport1 = "Шереметьево"
-  const airport2 = "Лондон, Хитроу"
-  const city1 = "Москва, "
-  const city2 = "Лондон,"
-  const code1 = "(SVO)"
-  const code2 = "(LHR)"
-  const timeTotal = "14 ч 45 мин"
-  const timeTotal2 = "14 ч 45 мин"
-  const departureTime1 = "18.10"
-  const arrivalTime1 = "9.10"
-  const departureTime2 = "18.10" 
-  const arrivalTime2 = "9.10"
-  const departureDate1 = "18 авг. вт";
-  const arrivalDate1 = "19 авг. ср";
-  const departureDate2 = "20 авг. чт";
-  const arrivalDate2 = "20 авг. чт"; 
-  const stops1 = "1 пересадка"; 
-  const stops2 = "1 пересадка"; 
+const FlightsItem = (props) => {
+  const {price,
+        aviacompany,
+        aviaCompanyCode,
+        departureAirport1,
+        arrivalAirport1,
+        departureAirport2,
+        arrivalAirport2,
+        departureCity1,
+        arrivalCity1,
+        departureCity2,
+        arrivalCity2,
+        departureCode1,
+        arrivalCode1,
+        departureCode2,
+        arrivalCode2,
+        timeTotal,
+        timeTotal2,
+        departureTime1,
+        arrivalTime1,
+        departureTime2, 
+        arrivalTime2,
+        departureDate1,
+        arrivalDate1,
+        departureDate2,
+        arrivalDate2, 
+        stops1,
+        stops2 } = props;
 
+  const countTime = (totalMinutes) => {
+    let hours = Math.floor(totalMinutes/60);
+    let minutes = totalMinutes - (hours*60);
+    return `${hours} ч ${minutes} мин`
+  }
 
   return (
     <div className="card">
@@ -41,15 +53,14 @@ const FlightsItem = ({ }) => {
         </div>
       </div>
       <div className="card__block card__block--top">
-      
         <div className="card__route">
-          <p className="card__city">{city1}</p>
-          <p className="card__airport uppercase">{airport1}</p>
-          <p className="card__code">{code1}</p>
+          <p className="card__city">{departureCity1}</p>
+          <p className="card__airport uppercase">{departureAirport1}</p>
+          <p className="card__code">{departureCode1}</p>
           <TrendingFlatIcon className="card__arrow" style={{height: "16px", fontSize: "medium"}}/>
-          <p className="card__city uppercase">{city2}</p>
-          <p className="card__airport">{airport2}</p>
-          <p className="card__code">{code2}</p>
+          <p className="card__city uppercase">{arrivalCity1}</p>
+          <p className="card__airport">{arrivalAirport1}</p>
+          <p className="card__code">{arrivalCode1}</p>
         </div>
         <div className="card__timing">
           <div className="card__departure">
@@ -58,7 +69,7 @@ const FlightsItem = ({ }) => {
           </div>
           <div className="card__total">
             <AccessTimeIcon className="card__icon" style={{height: "1.2rem", color: "rgb(23, 28, 24)"}}/>
-            <p>{timeTotal}</p>
+            <p>{countTime(timeTotal)}</p>
           </div>
           <div className="card__arival">
             <p className="card__date">{arrivalDate2}</p>
@@ -67,20 +78,20 @@ const FlightsItem = ({ }) => {
         </div>
         <div className="card__stops">
             <div className="card__line"></div>
-            <p className="card__stop">{stops1}</p>
+            <p className="card__stop">{stops1 === 0 ? "Без  пересадок" : "1  пересадка"}</p>
             <div className="card__line"></div>
           </div>
         <div className="card__company">Рейс выполняет: {aviacompany}</div>
       </div>
       <div className="card__block">
         <div className="card__route">
-        <div className="card__city uppercase">{city2}</div>
-          <p className="card__airport">{airport2}</p>
-          <p className="card__code">{code2}</p>
+        <div className="card__city uppercase">{departureCity2}</div>
+          <p className="card__airport">{departureAirport2}</p>
+          <p className="card__code">{departureCode2}</p>
           <TrendingFlatIcon className="card__arrow" style={{height: "16px", fontSize: "medium"}}/>
-          <p className="card__city">{city1}</p>
-          <p className="card__airport uppercase">{airport1}</p>
-          <p className="card__code">{code1}</p>
+          <p className="card__city">{arrivalCity2}</p>
+          <p className="card__airport uppercase">{arrivalAirport2}</p>
+          <p className="card__code">{arrivalCode2}</p>
         </div>
           <div className="card__timing">
             <div className="card__departure">
@@ -89,7 +100,7 @@ const FlightsItem = ({ }) => {
             </div>
             <div className="card__total">
               <AccessTimeIcon className="card__icon" style={{height: "1.2rem", color: "rgb(23, 28, 24)"}}/>
-              <p>{timeTotal2}</p>
+              <p>{countTime(timeTotal2)}</p>
             </div>
             <div className="card__arival">
               <p className="card__date">{arrivalDate1}</p>
@@ -98,7 +109,7 @@ const FlightsItem = ({ }) => {
           </div>
           <div className="card__stops">
             <div className="card__line"></div>
-            <p className="card__stop">{stops2}</p>
+            <p className="card__stop">{stops2 === 0 ? "Без  пересадок" : "1  пересадка"}</p>
             <div className="card__line"></div>
           </div>
         <div className="card__company">Рейс выполняет: {aviacompany}</div>
