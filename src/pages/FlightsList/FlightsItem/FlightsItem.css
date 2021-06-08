@@ -1,0 +1,150 @@
+.card {
+  color: rgb(23, 28, 24);
+  margin-bottom: 2rem;
+  width: 100%;
+  min-height: 20rem;
+}
+
+.card:last-child {
+  margin-bottom: 0;
+}
+
+.card__header {
+  background-color:rgb(0, 135, 201);
+  height: 2.7rem;
+  width: 100%;
+  color: white;
+  padding: 0.5rem 1rem;
+  box-sizing:border-box;
+}
+
+.card__block {
+  width: 100%;
+  padding: 0 0.5rem;
+  font-size: 1.3rem;
+}
+
+.card__block--top {
+  border-bottom: 2.9px solid rgb(0, 135, 201);
+}
+
+.card__button {
+  width: 100%;
+  background-color:rgb(255, 177, 102);
+  color: white;
+  padding: 0.7rem;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  transition: 0.4s;
+  font-size: 1.1rem;
+}
+
+.card__button:hover {
+  background-color:rgb(252, 162, 78);
+}
+
+.card__header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.card__logo {
+  width: 6rem;
+}
+.card__img {
+  width: 100%;
+}
+
+.card__price {
+  font-size: 1.2rem;
+  line-height: 0.9;
+  text-align: right;
+}
+
+.card__comment {
+  font-size: 0.6rem;
+}
+
+.card__route {
+  border-bottom: 1px solid rgba(231, 231, 231);
+  padding: 0.5rem;
+  display: flex;
+  align-items: flex-end;
+  
+}
+
+.card__city, .card__arrow {
+  margin-right: 0.2rem;
+  line-height: 0.9;
+  height: 16px;
+}
+.card__arrow {
+  color: rgb(0, 135, 201);
+}
+.card__airport {
+  margin-right: 0.2rem;
+  
+  line-height: 0.9;
+} 
+.card__code {
+  margin-right: 0.2rem;
+  color: rgb(0, 135, 201);
+  font-size: 1rem;
+}
+
+.card__timing {
+  padding: 0.5rem 0.5rem 0;
+  display: flex;
+  justify-content: space-between;
+}
+ 
+.card__stops {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.card__stop {
+  color:rgb(216, 151, 97);
+  text-align: center;
+  font-size: 1.1rem;
+  margin: 0 1rem 0;
+}
+
+.card__line {
+  border-bottom: 1px solid rgb(163, 163, 163);
+  width: 10rem;
+}
+
+.card__company {
+  padding: 0.5rem;
+  font-size: 1.1rem;
+}
+
+.card__departure, .card__arival {
+  display: flex;
+  flex-direction: row;
+  align-items:flex-end;
+}
+
+.card__time {
+  margin-right: 0.2rem;
+}
+
+.card__date {
+  color: rgb(0, 135, 201);
+  font-size: 1rem;
+  margin-right: 0.5rem;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.card__total {
+  display: flex;
+  align-items: center;
+}
+.card__icon {
+  margin-right: 0.1rem;
+}

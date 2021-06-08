@@ -1,0 +1,56 @@
+.settings {
+  width: 27%;
+  background-color: white;
+  height: 30rem;
+  margin-top: 3rem;
+  color: rgb(74, 84, 86);
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.settings__title {
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+.settings__block {
+  font-size: 14px;
+}
+
+.settings__content {
+  display: flex;
+  flex-direction: column;
+}
+
+.radio__button {
+  padding: 0px;
+  font-size: 14px;
+}
+
+.settings__checkbox {
+  display: flex;
+}
+
+.settings__price {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.settings__input {
+  max-width: 9.5rem;
+}
+
+.settings__text {
+  margin-right: 0.5rem;
+}
+
+.settings__input:focus {
+  outline: none;
+}
+
+.settings__radio-button {
+  display: flex;
+}

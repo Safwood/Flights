@@ -1,0 +1,8 @@
+.flights__list {
+  width: 77%;
+  background-color: white;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+}
