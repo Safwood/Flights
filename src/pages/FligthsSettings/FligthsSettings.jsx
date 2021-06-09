@@ -16,8 +16,19 @@ const FligthsSettings = () => {
   const setCompany = useCallback((company) => dispatch({type: 'settings/SET_COMPANY__SETTINGS', payload: company}), [dispatch]); 
   const setPrice = useCallback((price) => dispatch({type: 'settings/SET_PRICE__SETTINGS', payload: price}), [dispatch]); 
   const [sorting, setSorting] = React.useState('по возрастанию цены');
+  const stopsAmmount = [];
 
-
+  const countStops = () => {
+    flights.forEach(flight => {
+      if(!stopsAmmount.includes(flight.flight.legs[0].segments.length)) {
+        stopsAmmount.push(flight.flight.legs[0].segments.length)
+      }
+      if(!stopsAmmount.includes(flight.flight.legs[1].segments.length)) {
+        stopsAmmount.push(flight.flight.legs[1].segments.length)
+      }
+    })
+  }
+  
   const handleChange = (event) => {
     setSorting(event.target.value);
   };
@@ -31,6 +42,7 @@ const FligthsSettings = () => {
   const handleAircompanyChange = (event) => {
     setCompany({[event.target.name]: event.target.checked});
   };
+
 
   const getAircomponies = () => {
     return fullFlights.result.flights.forEach(flight => {
@@ -55,6 +67,9 @@ const FligthsSettings = () => {
 
   if(!airCompaniesArray.length) {
     getAircomponies()
+  }
+  if(!stopsAmmount.length) {
+    countStops()
   }
 
   useEffect(() => {
@@ -85,6 +100,18 @@ const FligthsSettings = () => {
       <div className="settings__block">
         <h3 className="settings__title">Фильтровать</h3>
         <div className="settings__content">
+        {/* <ul>
+            {stopsAmmount.length
+            ? stopsAmmount.map((stops, index) => {
+              return <li key={index}>
+                  <div className="settings__checkbox">
+                  <input id={stops === 2 ? "oneStop" : "NoStop"} type="checkbox" name={stops === 2 ? "oneStop" : "NoStop"} value={stops-1 === 1 ? "oneStop" : "NoStop"} checked={currentStops.oneStop} onChange={handleStopChange}/>
+                  <label htmlFor={stops === 2 ? "oneStop" : "NoStop"}>{stops === 2 ? "- 1 пересадка" : "- без пересадок"}</label>
+                </div>
+              </li>
+            })
+             : null}
+            </ul> */}
             <div className="settings__checkbox">
               <input id="one-stop" type="checkbox" name="oneStop" value="oneStop" checked={currentStops.oneStop} onChange={handleStopChange}/>
               <label htmlFor="one-stop">- 1 пересадка</label>

@@ -1,13 +1,10 @@
 .settings {
   width: 27%;
   background-color: white;
-  height: 55rem;
+  height: 47rem;
   margin-top: 3rem;
   color: rgb(74, 84, 86);
   padding: 2rem 1.5rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
 }
 
 .settings__title {

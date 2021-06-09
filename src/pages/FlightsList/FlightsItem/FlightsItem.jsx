@@ -7,7 +7,6 @@ import TrendingFlatIcon from '@material-ui/icons/TrendingFlat';
 const FlightsItem = (props) => {
   const {price,
         aviacompany,
-        aviaCompanyCode,
         departureAirport1,
         arrivalAirport1,
         departureAirport2,
@@ -72,8 +71,8 @@ const FlightsItem = (props) => {
             <p>{countTime(timeTotal)}</p>
           </div>
           <div className="card__arival">
-            <p className="card__date">{arrivalDate2}</p>
-            <p className="card__time">{arrivalTime2}</p>
+            <p className="card__date">{arrivalDate1}</p>
+            <p className="card__time">{arrivalTime1}</p>
           </div>
         </div>
         <div className="card__stops">
@@ -103,8 +102,8 @@ const FlightsItem = (props) => {
               <p>{countTime(timeTotal2)}</p>
             </div>
             <div className="card__arival">
-              <p className="card__date">{arrivalDate1}</p>
-              <p className="card__time">{arrivalTime1}</p>
+              <p className="card__date">{arrivalDate2}</p>
+              <p className="card__time">{arrivalTime2}</p>
             </div>
           </div>
           <div className="card__stops">
