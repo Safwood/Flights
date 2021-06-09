@@ -43,12 +43,19 @@ const FligthsSettings = () => {
     setCompany({[event.target.name]: event.target.checked});
   };
 
-
   const getAircomponies = () => {
     return fullFlights.result.flights.forEach(flight => {
       if(!airCompaniesArray.includes(flight.flight.carrier.airlineCode)) {
         airCompaniesArray.push(flight.flight.carrier.airlineCode)
-        airCompaniesShortList[flight.flight.carrier.airlineCode] = flight.flight.carrier.caption
+        airCompaniesShortList[flight.flight.carrier.airlineCode] = {
+          name: flight.flight.carrier.caption,
+          code: flight.flight.carrier.airlineCode,
+          price: flight.flight.price.total.amount
+        }
+      } else {
+        if(Number(airCompaniesShortList[flight.flight.carrier.airlineCode].price) > Number(flight.flight.price.total.amount)) {
+          airCompaniesShortList[flight.flight.carrier.airlineCode].price = flight.flight.price.total.amount
+        }
       }
     })
   }
@@ -140,11 +147,14 @@ const FligthsSettings = () => {
             {airCompaniesArray.length
             ? airCompaniesArray.map((company, index) => {
               return <li key={index}>
-                  <div className="settings__checkbox">
-                  <input id={company} type="checkbox" name={company} value={company}  checked={aircompanies[company]} onChange={handleAircompanyChange}/>
-                  <label htmlFor={company}>{airCompaniesShortList[company]}</label>
-                </div>
-              </li>
+                        <div className="settings__checkbox">
+                          <input id={company} type="checkbox" name={company} value={company} checked={aircompanies[company]} onChange={handleAircompanyChange}/>
+                          <div className="settings__checkbox-wrapper">
+                            <label htmlFor={company}>{airCompaniesShortList[company].name}</label>
+                            <div className="settings__min-price">от {airCompaniesShortList[company].price} р.</div>
+                          </div>
+                        </div>
+                      </li>
             })
              : null}
             </ul>

@@ -51,3 +51,14 @@
 .settings__radio-button {
   display: flex;
 }
+
+.settings__checkbox-wrapper {
+  display: flex;
+  justify-content: space-between;
+  flex: 1;
+}
+
+.settings__min-price {
+  width: 8rem;
+  text-align: right;
+}
