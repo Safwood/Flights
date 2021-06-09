@@ -71,7 +71,7 @@ const FligthsSettings = () => {
   if(!stopsAmmount.length) {
     countStops()
   }
-
+  
   useEffect(() => {
     setFlights(sort())
   }, [sorting]);
@@ -100,26 +100,24 @@ const FligthsSettings = () => {
       <div className="settings__block">
         <h3 className="settings__title">Фильтровать</h3>
         <div className="settings__content">
-        {/* <ul>
-            {stopsAmmount.length
-            ? stopsAmmount.map((stops, index) => {
-              return <li key={index}>
-                  <div className="settings__checkbox">
-                  <input id={stops === 2 ? "oneStop" : "NoStop"} type="checkbox" name={stops === 2 ? "oneStop" : "NoStop"} value={stops-1 === 1 ? "oneStop" : "NoStop"} checked={currentStops.oneStop} onChange={handleStopChange}/>
-                  <label htmlFor={stops === 2 ? "oneStop" : "NoStop"}>{stops === 2 ? "- 1 пересадка" : "- без пересадок"}</label>
-                </div>
-              </li>
-            })
-             : null}
-            </ul> */}
-            <div className="settings__checkbox">
-              <input id="one-stop" type="checkbox" name="oneStop" value="oneStop" checked={currentStops.oneStop} onChange={handleStopChange}/>
-              <label htmlFor="one-stop">- 1 пересадка</label>
-            </div>
+            {stopsAmmount.length === 1
+            ?
             <div className="settings__checkbox">
               <input id="no-stop" type="checkbox" name="noStop" value="noStop" checked={currentStops.noStop} onChange={handleStopChange}/>
               <label htmlFor="no-stop">- без пересадок</label>
             </div>
+            :
+           <>
+              <div className="settings__checkbox">
+                <input id="one-stop" type="checkbox" name="oneStop" value="oneStop" checked={currentStops.oneStop} onChange={handleStopChange}/>
+                <label htmlFor="one-stop">- 1 пересадка</label>
+              </div>
+              <div className="settings__checkbox">
+                <input id="no-stop" type="checkbox" name="noStop" value="noStop" checked={currentStops.noStop} onChange={handleStopChange}/>
+                <label htmlFor="no-stop">- без пересадок</label>
+              </div>
+           </>
+            }
         </div>
       </div>
       <div className="settings__block">
