@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/Flights/static/css/main.c59c647e.chunk.css",
+    "main.js": "/Flights/static/js/main.3a732312.chunk.js",
+    "main.js.map": "/Flights/static/js/main.3a732312.chunk.js.map",
+    "runtime-main.js": "/Flights/static/js/runtime-main.f4f655ab.js",
+    "runtime-main.js.map": "/Flights/static/js/runtime-main.f4f655ab.js.map",
+    "static/js/2.1e0b7e4e.chunk.js": "/Flights/static/js/2.1e0b7e4e.chunk.js",
+    "static/js/2.1e0b7e4e.chunk.js.map": "/Flights/static/js/2.1e0b7e4e.chunk.js.map",
+    "static/js/3.cdd2d26c.chunk.js": "/Flights/static/js/3.cdd2d26c.chunk.js",
+    "static/js/3.cdd2d26c.chunk.js.map": "/Flights/static/js/3.cdd2d26c.chunk.js.map",
+    "index.html": "/Flights/index.html",
+    "static/css/main.c59c647e.chunk.css.map": "/Flights/static/css/main.c59c647e.chunk.css.map",
+    "static/js/2.1e0b7e4e.chunk.js.LICENSE.txt": "/Flights/static/js/2.1e0b7e4e.chunk.js.LICENSE.txt",
+    "static/media/01-afl-logo-pts-russ.62c23d61.png": "/Flights/static/media/01-afl-logo-pts-russ.62c23d61.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.f4f655ab.js",
+    "static/js/2.1e0b7e4e.chunk.js",
+    "static/css/main.c59c647e.chunk.css",
+    "static/js/main.3a732312.chunk.js"
+  ]
+}
