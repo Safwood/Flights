@@ -74,17 +74,20 @@
   
 }
 
-.card__city, .card__arrow {
+.card__city {
+  margin-right: 0.2rem;
+  line-height: 0.9;
+  text-align: center;
+}
+.card__arrow {
+  color: rgb(0, 135, 201);
   margin-right: 0.2rem;
   line-height: 0.9;
   height: 16px;
 }
-.card__arrow {
-  color: rgb(0, 135, 201);
-}
 .card__airport {
   margin-right: 0.2rem;
-  
+  text-align: center;
   line-height: 0.9;
 } 
 .card__code {
@@ -135,10 +138,6 @@
   color: rgb(0, 135, 201);
   font-size: 1rem;
   margin-right: 0.5rem;
-}
-
-.uppercase {
-  text-transform: uppercase;
 }
 
 .card__total {

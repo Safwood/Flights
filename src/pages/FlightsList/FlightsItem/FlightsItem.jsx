@@ -55,12 +55,12 @@ const FlightsItem = (props) => {
       <div className="card__block card__block--top">
         <div className="card__route">
           <p className="card__city">{departureCity1}</p>
-          <p className="card__airport uppercase">{departureAirport1}</p>
-          <p className="card__code">{departureCode1}</p>
+          <p className="card__airport">{departureAirport1}</p>
+          <p className="card__code">({departureCode1})</p>
           <TrendingFlatIcon className="card__arrow" style={{height: "16px", fontSize: "medium"}}/>
-          <p className="card__city uppercase">{arrivalCity1}</p>
+          <p className="card__city">{arrivalCity1}</p>
           <p className="card__airport">{arrivalAirport1}</p>
-          <p className="card__code">{arrivalCode1}</p>
+          <p className="card__code">({arrivalCode1})</p>
         </div>
         <div className="card__timing">
           <div className="card__departure">
@@ -78,20 +78,20 @@ const FlightsItem = (props) => {
         </div>
         <div className="card__stops">
             <div className="card__line"></div>
-            <p className="card__stop">{stops1 === 0 ? "Без  пересадок" : "1  пересадка"}</p>
+            <p className="card__stop">{stops1}</p>
             <div className="card__line"></div>
           </div>
         <div className="card__company">Рейс выполняет: {aviacompany}</div>
       </div>
       <div className="card__block">
         <div className="card__route">
-        <div className="card__city uppercase">{departureCity2}</div>
+        <div className="card__city">{departureCity2}</div>
           <p className="card__airport">{departureAirport2}</p>
-          <p className="card__code">{departureCode2}</p>
+          <p className="card__code">({departureCode2})</p>
           <TrendingFlatIcon className="card__arrow" style={{height: "16px", fontSize: "medium"}}/>
           <p className="card__city">{arrivalCity2}</p>
-          <p className="card__airport uppercase">{arrivalAirport2}</p>
-          <p className="card__code">{arrivalCode2}</p>
+          <p className="card__airport">{arrivalAirport2}</p>
+          <p className="card__code">({arrivalCode2})</p>
         </div>
           <div className="card__timing">
             <div className="card__departure">
@@ -109,7 +109,7 @@ const FlightsItem = (props) => {
           </div>
           <div className="card__stops">
             <div className="card__line"></div>
-            <p className="card__stop">{stops2 === 0 ? "Без  пересадок" : "1  пересадка"}</p>
+            <p className="card__stop">{stops2}</p>
             <div className="card__line"></div>
           </div>
         <div className="card__company">Рейс выполняет: {aviacompany}</div>

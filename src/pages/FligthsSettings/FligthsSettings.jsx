@@ -2,8 +2,11 @@ import React, {useEffect, useCallback} from 'react';
 import './FligthsSettings.css';
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
+import fullFlights from '../../flights.json';
 
 const FligthsSettings = () => {
+  const airCompaniesShortList = {};
+  const airCompaniesArray = [];
   const flights = useSelector((state) => state.flights.allFlights);
   const currentStops = useSelector((state) => state.settings.stops);
   const aircompanies = useSelector((state) => state.settings.aircompanies);
@@ -13,6 +16,7 @@ const FligthsSettings = () => {
   const setCompany = useCallback((company) => dispatch({type: 'settings/SET_COMPANY__SETTINGS', payload: company}), [dispatch]); 
   const setPrice = useCallback((price) => dispatch({type: 'settings/SET_PRICE__SETTINGS', payload: price}), [dispatch]); 
   const [sorting, setSorting] = React.useState('по возрастанию цены');
+
 
   const handleChange = (event) => {
     setSorting(event.target.value);
@@ -28,6 +32,15 @@ const FligthsSettings = () => {
     setCompany({[event.target.name]: event.target.checked});
   };
 
+  const getAircomponies = () => {
+    return fullFlights.result.flights.forEach(flight => {
+      if(!airCompaniesArray.includes(flight.flight.carrier.airlineCode)) {
+        airCompaniesArray.push(flight.flight.carrier.airlineCode)
+        airCompaniesShortList[flight.flight.carrier.airlineCode] = flight.flight.carrier.caption
+      }
+    })
+  }
+
   const sort = () => {
     const newList = JSON.parse(JSON.stringify(flights))
     if(sorting === 'по возрастанию цены') {
@@ -38,6 +51,10 @@ const FligthsSettings = () => {
       newList.sort((a, b) => a.flight.legs[0].duration - b.flight.legs[0].duration)
     }
     return newList
+  }
+
+  if(!airCompaniesArray.length) {
+    getAircomponies()
   }
 
   useEffect(() => {
@@ -94,46 +111,18 @@ const FligthsSettings = () => {
       <div className="settings__block">
         <h3 className="settings__title">Авиакомпании</h3>
         <div className="settings__content">
-            <div className="settings__checkbox">
-              <input id="LO" type="checkbox" name="LO" value="LO"  checked={aircompanies.LO} onChange={handleAircompanyChange}/>
-              <label htmlFor="LO">LOT Polish Airlines</label>
-            </div>
-            <div className="settings__checkbox">
-              <input id="BT" type="checkbox" name="BT" value="BT" checked={aircompanies.BT} onChange={handleAircompanyChange}/>
-              <label htmlFor="BT">Air Baltic Corporation A/S</label>
-            </div>
-            <div className="settings__checkbox">
-              <input id="AF" type="checkbox" name="AF" value="AF" checked={aircompanies.AF} onChange={handleAircompanyChange}/>
-              <label htmlFor="AF">Air France</label>
-            </div>
-            <div className="settings__checkbox">
-              <input id="KL" type="checkbox" name="KL" value="KL" checked={aircompanies.KL} onChange={handleAircompanyChange}/>
-              <label htmlFor="KL">KLM</label>
-            </div>
-            <div className="settings__checkbox">
-              <input id="SN" type="checkbox" name="SN" value="SN" checked={aircompanies.SN} onChange={handleAircompanyChange}/>
-              <label htmlFor="SN">Brussels Airlines</label>
-            </div>
-            <div className="settings__checkbox">
-              <input id="TK" type="checkbox" name="TK" value="TK" checked={aircompanies.TK} onChange={handleAircompanyChange}/>
-              <label htmlFor="TK">TURK HAVA YOLLARI A.O.</label>
-            </div>
-            <div className="settings__checkbox">
-              <input id="SU" type="checkbox" name="SU" value="SU" checked={aircompanies.SU} onChange={handleAircompanyChange}/>
-              <label htmlFor="SU">Аэрофлот - российские авиалинии</label>
-            </div>
-            <div className="settings__checkbox">
-              <input id="AZ" type="checkbox" name="AZ" value="AZ" checked={aircompanies.AZ} onChange={handleAircompanyChange}/>
-              <label htmlFor="AZ">Alitalia Societa Aerea Italiana</label>
-            </div>
-            <div className="settings__checkbox">
-              <input id="AY" type="checkbox" name="AY" value="AY" checked={aircompanies.AY} onChange={handleAircompanyChange}/>
-              <label htmlFor="AY">Finnair Oyj</label>
-            </div>
-            <div className="settings__checkbox">
-              <input id="PC" type="checkbox" name="PC" value="PC" checked={aircompanies.PC} onChange={handleAircompanyChange}/>
-              <label htmlFor="PC">Pegasus Hava Tasimaciligi A.S.</label>
-            </div>
+          <ul>
+            {airCompaniesArray.length
+            ? airCompaniesArray.map((company, index) => {
+              return <li key={index}>
+                  <div className="settings__checkbox">
+                  <input id={company} type="checkbox" name={company} value={company}  checked={aircompanies[company]} onChange={handleAircompanyChange}/>
+                  <label htmlFor={company}>{airCompaniesShortList[company]}</label>
+                </div>
+              </li>
+            })
+             : null}
+            </ul>
         </div>
       </div>
     </div>
