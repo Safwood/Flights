@@ -72,7 +72,7 @@ const FlightsList = ({ }) => {
           arrivalCode1 = {flight.flight.legs[0].segments.length === 1
             ? flight.flight.legs[0].segments[0].arrivalAirport.uid
             : flight.flight.legs[0].segments[1].arrivalAirport.uid}
-          departureCode2 = {flight.flight.legs[1].segments[0].arrivalAirport.uid}
+          departureCode2 = {flight.flight.legs[1].segments[0].departureAirport.uid}
           arrivalCode2 = {flight.flight.legs[1].segments.length === 1
             ? flight.flight.legs[1].segments[0].arrivalAirport.uid
             : flight.flight.legs[1].segments[1].arrivalAirport.uid}
